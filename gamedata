@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+
+
+typedef struct Personagem
+{
+	char *nome[20];
+	int hp;
+	int *str;
+	int cons;
+	int agi;
+	int dex;
+} character;
+
+	character P1;
+	character *ptrP1 = &P1;
+
+typedef struct Armas
+{
+	char categoria;
+	int dano;
+} weapon;
+
+typedef struct Armadura
+{
+	int def;
+} armor;
+
+typedef struct Adversarios
+{
+	char *nome[20];
+	int hp;// constante ou aleatorio
+	int dmg;
+	int def;// constante ou aleatorio
+	int agi;// constante ou aleatorio
+} enemy;
+
+
+
+int dado(int lados){
+	srand(time(NULL));
+	int val = rand()%lados;
+	return val;
+
+}
+
+void enemyset(){
+	enemy Creep;
+	enemy *ptrCreep = &Creep;
+	(*ptrCreep->nome) = "Creep";
+	ptrCreep->hp = 100;
+	ptrCreep->dmg = 10;
+	ptrCreep->def = 10;
+	ptrCreep->agi = 8;
+	
+	enemy Ghoul;
+	enemy *ptrGhoul = &Ghoul;
+	(*ptrGhoul->nome) = "Ghoul";
+	ptrGhoul->hp = 80;
+	ptrGhoul->dmg = 15;
+	ptrGhoul->def = 7;
+	ptrGhoul->agi = 13;
+	
+	enemy Skeleton;
+	enemy *ptrSkeleton = &Skeleton;
+	(*ptrSkeleton->nome) = "Skeleton";
+	ptrSkeleton->hp = 200;
+	ptrSkeleton->dmg = 5;
+	ptrSkeleton->def = 20;
+	ptrSkeleton->agi = 4;
+}
